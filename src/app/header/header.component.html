@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="header__content">
+    <div class="header__logo">
+      <a routerLink="/">
+        <!-- Replace with your logo image -->
+        <img src="assets/avatar-dark.png" alt="Sports Betting AI Logo" />
+      </a>
+      <span class="header__title">
+        Sports AI
+      </span>
+    </div>
+    <nav class="header__nav desktop-only">
+      <ul class="header__nav__list">
+        <li class="header__nav__item" *ngFor="let item of navItems">
+          <a
+            routerLink="{{ item.path }}"
+            class="header__nav__link"
+            (click)="onClickHeaderItem()"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__hamburger mobile-only" (click)="toggleMobileMenu()">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </div>
+  </div>
+  <nav class="header__mobile-menu mobile-only" *ngIf="mobileMenuOpen">
+    <ul class="header__mobile-menu__list">
+      <li class="header__mobile-menu__item" *ngFor="let item of navItems">
+        <a (click)="navigate(item.path)" class="header__mobile-menu__link">
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

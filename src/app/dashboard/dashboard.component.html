@@ -1,0 +1,65 @@
+<div class="dashboard__container">
+  <header class="dashboard__header">
+    <div class="dashboard__header__title">
+      <h1 class="dashboard__header__title__primary neon-text">Dashboard</h1>
+      <h1 class="dashboard__header__title__secondary">View</h1>
+    </div>
+    <!-- <div class="dashboard__header__title__secondary__container">
+      <h2>(NBA)</h2>
+      <img
+        src="../../assets/nav.png"
+        alt="Basketball Logo"
+        class="dashboard__header__title__secondary__img"
+      />
+    </div> -->
+  </header>
+
+  <!-- Metrics Section with Mini Charts -->
+  <section class="dashboard__metrics border-beam">
+    <div class="metric-card" *ngFor="let metric of metrics">
+      <p class="metric-card__label">{{ metric.label }}</p>
+      <p class="metric-card__value">{{ metric.value }}</p>
+      <div class="metric-card__mini-chart-container">
+        <canvas #miniChart class="metric-card__mini-chart"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Toolbar -->
+  <section class="dashboard__filter-toolbar border-beam">
+    <div class="filter-toolbar__container">
+      <label *ngFor="let option of filterOptions" class="filter-option">
+        <input
+          type="checkbox"
+          [checked]="selectedFilters.includes(option)"
+          (change)="toggleFilter(option)"
+        />
+        <span>{{ option }}</span>
+      </label>
+    </div>
+  </section>
+
+  <!-- Charts Section -->
+  <section class="dashboard__charts border-beam">
+    <div
+      class="chart-card"
+      *ngFor="let config of filteredChartConfigs; let i = index"
+    >
+      <!-- Card Toolbar/Header -->
+      <div class="chart-card__toolbar">
+        <p class="chart-card__toolbar__title">{{ config.title }}</p>
+      </div>
+      <!-- Chart Body -->
+      <div class="chart-card__body">
+        <canvas #chartCanvas class="chart-card__canvas"></canvas>
+      </div>
+      <!-- Card Description -->
+      <div class="chart-card__description">
+        <p>
+          <strong>{{ config.title }}</strong> displays mock data for
+          demonstration.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

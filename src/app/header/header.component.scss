@@ -1,0 +1,112 @@
+.header {
+  background-color: rgb(13, 18, 28);
+  border-bottom: 1px solid rgb(44, 52, 55);
+  color: #fff;
+  font-family: sans-serif;
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+  &__logo img {
+    height: 2.5rem;
+  }
+  &__title {
+    font-size: 1rem;
+    font-family: SF Pro Display, SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: white;
+  }
+  &__nav {
+    &__list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    &__item {
+      margin: 0 1rem;
+    }
+    &__link {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+      &:hover,
+      &.active {
+        background-color: #f3ac31;
+      }
+    }
+  }
+  &__hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    .hamburger-line {
+      width: 1.5rem;
+      height: 0.2rem;
+      background-color: #fff;
+      margin: 0.3rem 0;
+      transition: all 0.3s;
+    }
+  }
+  &__mobile-menu {
+    background-color: #333;
+    padding: 1rem 0;
+    .header__mobile-menu__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .header__mobile-menu__item {
+        margin: 0.5rem 0;
+      }
+      .header__mobile-menu__link {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        &:hover,
+        &.active {
+          background-color: #555;
+        }
+      }
+    }
+  }
+}
+
+.desktop-only {
+  display: flex;
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: flex;
+  }
+  .header__hamburger {
+    display: flex;
+  }
+}
+
+@media (min-width: 40rem) and (max-width: 64rem) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: flex;
+  }
+  .header__hamburger {
+    display: flex;
+  }
+}
